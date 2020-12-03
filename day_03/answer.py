@@ -1,19 +1,16 @@
 # --- Day 3: Toboggan Trajectory ---
 # https://adventofcode.com/2020/day/3
 
-# imports
-import numpy as np
-
 # data
 with open('input.txt', 'r') as f:
     data = [line.strip() for line in f]
 
-# move data to numpy array
-data = np.array([list(row) for row in data])
+# create list of lists
+data = [list(row) for row in data]
 
 # simple function to check the coordinates of the numpy array
 def check_for_tree(tree_map, coords):
-    char = tree_map[coords]
+    char = tree_map[coords[0]][coords[1]]
     if char == '#':
         return 1
     else:
@@ -21,8 +18,8 @@ def check_for_tree(tree_map, coords):
 
 def traverse(right, down, data):
     counter = 0
-    max_rows = data.shape[0]
-    max_cols = data.shape[1]
+    max_rows = len(data)
+    max_cols = len(data[0])
     coords = (0, 0)
 
     # loop over array and update counter
