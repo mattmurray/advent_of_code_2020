@@ -1,18 +1,16 @@
 # --- Day 2: Password Philosophy ---
 # https://adventofcode.com/2020/day/2
 
+# imports
 from collections import Counter
 
-with open('./inputs/02.txt', 'r') as f:
+# data
+with open('input.txt', 'r') as f:
     passwords = [line.strip() for line in f]
-#
-# passwords = [
-#     '1-3 a: abcde',
-#     '1-3 b: cdefg',
-#     '2-9 c: ccccccccc'
-# ]
 
-## Part 1
+########################################################################################################################
+# Part 1
+########################################################################################################################
 
 valid_passwords = 0
 for policy in passwords:
@@ -25,14 +23,11 @@ for policy in passwords:
     if letter_count >= int(min_val) and letter_count <= int(max_val):
         valid_passwords += 1
 
+print(valid_passwords)
 
-## Part 2
-
-# passwords = [
-#     '1-3 a: abcde',
-#     '1-3 b: cdefg',
-#     '2-9 c: ccccccccc'
-# ]
+########################################################################################################################
+# Part 2
+########################################################################################################################
 
 valid_passwords = 0
 for policy in passwords:
